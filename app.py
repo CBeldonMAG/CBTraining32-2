@@ -10,16 +10,16 @@ def index():
     # Initialize a variable to store the processed age value, default is 0
     result_age = 0
     
-    if request.method == 'POST':
-        try:
-            # Retrieve the age input from the form and convert it to an integer
-            age = int(request.form['age'])
-            # Calculation: Add 6 to the input age and store the result
-            result_age = age + 7
-        except ValueError:
-            # If the input is not a valid integer, return an empty string
-            result_age = ""
-            
+if request.method == 'POST':
+    try:
+        # Retrieve the age input from the form and convert it to an integer
+        age = int(request.form['age'])
+        # Calculation: Divide age by 2, then add 7 and store the result
+        result_age = (age // 2) + 7
+    except ValueError:
+        # If the input is not a valid integer, return an empty string
+        result_age = ""
+        
     # Render the index.html template and pass the processed age to it
     return render_template("index.html", age=result_age)
 
